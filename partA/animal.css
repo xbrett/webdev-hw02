@@ -1,0 +1,34 @@
+#b {
+    color: blue;
+    letter-spacing: -4px;
+}
+#o {
+    color: orange;
+    letter-spacing: -4px;
+}
+#x {
+    color: red;
+    letter-spacing: -4px;
+}
+#e {
+    color: yellow;
+    letter-spacing: -4px;
+}
+#r {
+    color: green;
+    letter-spacing: -4px;
+}
+#boxer {
+    display: block;
+    margin-right: auto;
+    width: 50%;
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
+}
+body {
+    background: lightblue;
+}
