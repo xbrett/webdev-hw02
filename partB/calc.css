@@ -1,0 +1,25 @@
+#calculator table {
+    padding: 20px;
+    border-collapse: collapse;
+}
+
+#calculator th {
+    border: 1px solid black;
+    padding: 20px;
+    text-align: right;
+}
+
+#calculator td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 20px;
+}
+
+.number {
+    background-color: bisque;
+}
+
+.opperation {
+    background-color: darkgoldenrod;
+}
