@@ -8,36 +8,31 @@
     <link rel="stylesheet" href="calc.css">
 </head>
 <body>
-    <table id="calculator">
-        <tr>
-            <th id="result" colspan="4">0</th>
-        </tr>
-        <tr>
-            <td class="number" id="seven">7</td>
-            <td class="number" id="eight">8</td>
-            <td class="number" id="nine">9</td>
-            <td class="opperation" id="add-equals">+/=</td>
-        </tr>
-        <tr>
-            <td class="number" id="four">4</td>
-            <td class="number" id="five">5</td>
-            <td class="number" id="six">6</td>
-            <td class="opperation" id="subtraction">-</td>
-        </tr>
-        <tr>
-            <td class="number" id="one">1</td>
-            <td class="number" id="two">2</td>
-            <td class="number" id="three">3</td>
-            <td class="opperation" id="multiplication">x</td>
-        </tr>
-        <tr>
-            <td class="opperation" id="clear">c</td>
-            <td class="number" id="zero">0</td>
-            <td class="number" id="decimal">.</td>
-            <td class="opperation" id="division">/</td>
-        </tr>
-    </table>
+    <div id="display" data-result="0">&nbsp;</div>
+    <div class="calculator">
+        
+        <button class="number" id="seven" data-btn="7">7</button>
+        <button class="number" id="eight" data-btn="8">8</button>
+        <button class="number" id="nine" data-btn="9">9</button>
+        <button class="opperation" id="add" data-opp="+">+/=</button>
 
+        <button class="number" id="four" data-btn="4">4</button>
+        <button class="number" id="five" data-btn="5">5</button>
+        <button class="number" id="six" data-btn="6">6</button>
+        <button class="opperation" id="subtract" data-opp="-">-</button>
+
+        <button class="number" id="one" data-btn="1">1</button>
+        <button class="number" id="two" data-btn="2">2</button>
+        <button class="number" id="three" data-btn="3">3</button>
+        <button class="opperation" id="multiply" data-opp="*">x</button>
+
+        <button class="clear">C</button>
+        <button class="number" id="zero" data-btn="0">0</button>
+        <button class="number" data-btn=".">.</button>
+        <button class="opperation" id="divide" data-opp="/">/</button>
+
+    </div>
+    <div id="debug" data-result="0">blah</div>
     <script src="calc.js"></script>
 </body>
 
