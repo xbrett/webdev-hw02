@@ -4,7 +4,7 @@
     var result = 0;
     var calculation = [];
     var isNumber = false;
-    var isOpp = false;
+    var newNumber = false;
     
 
     function number_clicked(element) {
@@ -14,22 +14,35 @@
         display.innerText = display.innerText.substr(1);
       }
 
-      display.innerText += element.innerText;
-
       var opps = ["-","+","/","*"];
 
       if (opps.includes(calculation[calculation.length - 1]) || isNumber) {
         if (isNumber) {
+          display.innerText += element.innerText;
           calculation.pop();
           calculation.push(display.innerText);
+        } else if (newNumber) {
+          display.innerText = element.innerText;
+          newNumber = false;
+
         } else {
+          display.innerText += element.innerText;
           calculation.push(display.innerText);
           isNumber = true;
         }
       } else {
+        display.innerText += element.innerText;
         isNumber = false;
       }
       
+    }
+
+    function decimal_clicked(element) {
+      var display = document.getElementById('display');
+
+      if (!(display.innerText.includes('.'))) {
+        display.innerText += element.innerText;
+      }
     }
 
     function opp_clicked(element) {
@@ -45,21 +58,30 @@
       
       var display = document.getElementById('display');
       var calculationStr = "";
-      calculation.forEach(function(element) {
-        calculationStr += element;
+      calculation.forEach(function(el) {
+        calculationStr += el;
       });
 
       result = eval(calculationStr);
       var debug = document.getElementById('debug');
       debug.innerText = calculation;
-      opp_clicked(element);
+
       display.innerText = result;
+
+      calculation = [result];
+      calculation.push(element.getAttribute('data-opp'));
+      var debug2 = document.getElementById('debug2');
+      debug2.innerText = calculation;
+      isNumber = false;
+      newNumber = true;
 
     }
 
-    function clear() {
+    function clear_clicked() {
       result = 0;
       calculation = [];
+      isNumber = false;
+      newNumber = false;
       var display = document.getElementById('display');
       display.innerText = "";
     }
@@ -75,11 +97,13 @@
       var seven = document.getElementById('seven');
       var eight = document.getElementById('eight');
       var nine = document.getElementById('nine');
+      var decimal = document.getElementById('decimal');
 
       var addOrEquals = document.getElementById('add');
       var subtract = document.getElementById('subtract');
       var multiply = document.getElementById('multiply');
       var divide = document.getElementById('divide');
+      var clear = document.getElementById('clear');
 
       zero.addEventListener('click', function() { number_clicked(zero); });
       one.addEventListener('click', function() { number_clicked(one); });
@@ -91,11 +115,13 @@
       seven.addEventListener('click', function() { number_clicked(seven); });
       eight.addEventListener('click', function() { number_clicked(eight); });
       nine.addEventListener('click', function() { number_clicked(nine); });
+      decimal.addEventListener('click', function() { decimal_clicked(decimal); });
 
       addOrEquals.addEventListener('click', function() { evaluate(addOrEquals); });
       subtract.addEventListener('click', function() { opp_clicked(subtract); });
       multiply.addEventListener('click', function() { opp_clicked(multiply); });
       divide.addEventListener('click', function() { opp_clicked(divide); });
+      clear.addEventListener('click', function() { clear_clicked(); });
 
     }
   
