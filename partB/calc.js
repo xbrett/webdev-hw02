@@ -5,7 +5,6 @@
     var calculation = [];
     var isNumber = false;
     var newNumber = false;
-    
 
     function number_clicked(element) {
       var display = document.getElementById('display');
@@ -34,7 +33,6 @@
         display.innerText += element.innerText;
         isNumber = false;
       }
-      
     }
 
     function decimal_clicked(element) {
@@ -51,7 +49,6 @@
       calculation.push(display.innerText);
       calculation.push(element.getAttribute("data-opp"));
       display.innerText = "";
-
     }
 
     function evaluate(element) {
@@ -63,18 +60,12 @@
       });
 
       result = eval(calculationStr);
-      var debug = document.getElementById('debug');
-      debug.innerText = calculation;
-
       display.innerText = result;
 
       calculation = [result];
       calculation.push(element.getAttribute('data-opp'));
-      var debug2 = document.getElementById('debug2');
-      debug2.innerText = calculation;
       isNumber = false;
       newNumber = true;
-
     }
 
     function clear_clicked() {
@@ -122,13 +113,8 @@
       multiply.addEventListener('click', function() { opp_clicked(multiply); });
       divide.addEventListener('click', function() { opp_clicked(divide); });
       clear.addEventListener('click', function() { clear_clicked(); });
-
     }
   
     document.addEventListener('DOMContentLoaded', init, false);
 
-    // Delay the setup code until page is fully loaded.
-    //window.addEventListener('load', setup_button, false);
-  
-    // Immediately call function.
   })();
